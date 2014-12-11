@@ -4,6 +4,7 @@ README.txt
 __main__.py
 cookies.txt
 mget.conf
+setup.cfg
 setup.py
 /home/mssg3r/Works/MGET-1.4.2/./Mget/utils/CPPMGET/common.cpp
 /home/mssg3r/Works/MGET-1.4.2/./Mget/utils/CPPMGET/cpycode.pyx

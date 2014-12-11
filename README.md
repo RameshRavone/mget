@@ -1,6 +1,6 @@
 MGet - Download from video sharing sites, manga from mangafox and MGet is also a file downloader which currently support HTTP/HTTPS.
 
-# Implemented cython from 1.1.2 > *.
+# Implementing cython from 1.1.2 > *.
 
 # SYNOPSIS
 mget [OPTIONS] URL [URL...]
@@ -28,9 +28,6 @@ Examples:
     # TEST:
     mget [options..] <URL>
 
-    #MGet
-    mget <URL>
-
     #Download Embed video
     mget -G <URL>
 
@@ -45,6 +42,9 @@ Examples:
 
     #Download with proxy
     mget --proxy IP:PORT <URL>
+
+    #Post-process converting video formats
+    mget --recode-video FORMAT <url> // which will recode the downloaded video into given format
 
     #Download manga
     mangafox url = "http://mangafox.me/manga/${series}/v01/c001/1.html"
@@ -68,11 +68,6 @@ Apparently Some site requires some clearance before downloading, So please point
 
 Once the video is fully downloaded, use any video player, such as [vlc](http://www.videolan.org) or [mplayer](http://www.mplayerhq.hu/).
 
-## Read Source ##
-
-MGet is packed as an executable zipfile, simply unzip it (might need renaming to `mget.zip` first on some systems). If you modify the code, you can run it by executing the `__main__.py` file. To recompile the executable, run `./install.sh`.
-
 ####################################################################################################
 
 Send your Request to mssg3r@gmail.com.
-

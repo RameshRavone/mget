@@ -7,8 +7,11 @@ INSTALLATION
 
 New Feature - Manga download from mangafox.me To install it right away for all UNIX users (Linux, OS X, etc.), type: # Install using pip: pip3 install mget (or) pip3 install --upgrade mget
 
-# Install from source:
-python3 setup.py install
+#Install from source:
+python3 setup.py install or make install
+
+#Install from pypi
+pip3 install mget
 
 DESCRIPTION
 
@@ -18,33 +21,33 @@ Download file with ease! Send your request to mssg3r@gmail.com.
 
 Examples:
 
-# TEST:
+TEST:
 mget [options..] <URL>
 
-#Download Embed video
+Download Embed video
 mget -G <URL>
 
-#Download some amount(Percent%) of file only
+Download some amount(Percent%) of file only
 mget -p 90 <URL>
 
-#Change download File buffer size (KB)
+Change download File buffer size (KB)
 mget --buffer 3 <URL>
 
-#Download list of urls from a file
+Download list of urls from a file
 mget -i <file>
 
-#Download with proxy
+Download with proxy
 mget --proxy IP:PORT <URL>
 
-#Post-process converting video formats
+Post-process converting video formats
 mget --recode-video FORMAT <url> // which will recode the downloaded video into given format
 
-#Download manga
+Download manga
 mangafox url = "http://mangafox.me/manga/${series}/v01/c001/1.html"
 mget <mangafox url> 
 mget --start-page <mangafox url>
 
-# Check mget -h for more options
+#Check mget -h for more options
 
 FAQ
 How to get embed url?

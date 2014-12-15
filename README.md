@@ -21,28 +21,22 @@ Download file with ease! Send your request to mssg3r@gmail.com.
 
 Examples:
 
-TEST:
-mget [options..] <URL>
+TEST: mget [options..] <URL>
 
-Download Embed video
-mget -G <URL>
+Download Embed video: mget -G <URL>
 
-Download some amount(Percent%) of file only
-mget -p 90 <URL>
+Download some amount(Percent%) of file only: mget -p 90 <URL>
 
-Change download File buffer size (KB)
-mget --buffer 3 <URL>
+Change download File buffer size (KB): mget --buffer 3 <URL>
 
-Download list of urls from a file
-mget -i <file>
+Download list of urls from a file: mget -i <file>
 
-Download with proxy
-mget --proxy IP:PORT <URL>
+Download with proxy: mget --proxy IP:PORT <URL>
 
-Post-process converting video formats
+#Post-process converting video formats
 mget --recode-video FORMAT <url> // which will recode the downloaded video into given format
 
-Download manga
+#Download manga
 mangafox url = "http://mangafox.me/manga/${series}/v01/c001/1.html"
 mget <mangafox url> 
 mget --start-page <mangafox url>

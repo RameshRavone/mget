@@ -1,0 +1,12 @@
+include README.txt
+include LICENSE
+include mget.conf
+include cookies.txt
+include __main__.py
+include install.sh
+include Mget/utils/cpysrc/main.h
+include Mget/utils/cpysrc/common.h
+include Mget/utils/cpysrc/main.cpp
+include Mget/utils/cpysrc/common.cpp
+include Mget/utils/cpysrc/cpycode.pxd
+include Mget/utils/cpysrc/cpycode.pyx

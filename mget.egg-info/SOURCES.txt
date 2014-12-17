@@ -1,6 +1,5 @@
 LICENSE
 MANIFEST.in
-README.txt
 __main__.py
 cookies.txt
 mget.conf

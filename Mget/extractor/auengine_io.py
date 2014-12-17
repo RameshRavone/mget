@@ -22,6 +22,6 @@ class Auengine_io_IE(InfoExtractor):
 
 		if not url: return None
 
-#		filename = self.file_name_html('head/title',str(data["webpage"]))
+		filename = self.file_name_html('head/title',str(data["webpage"]))
 		return {'url': url,
-			'filename': self.getFilename(url)}
+			'filename': filename or self.getFilename(url)}

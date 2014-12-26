@@ -10,6 +10,7 @@ from .common import InfoExtractor
 from .anivids import Anivids_IE
 from .aniupload import Aniupload_IE
 from .auengine import Auengine_IE
+from .animebam import Animebam_IE
 from .ftwcdn import Ftwcdn_IE
 from .mp4upload import Mp4upload_IE
 from .playpanda import Playpanda_IE

@@ -7,6 +7,7 @@ from .common import InfoExtractor
 class Auengine_io_IE(InfoExtractor):
 	_VALID_URL = r'^(?:https?://)?(?:www\.)?auengine\.io/embed/(?:.*)'
 	_VIDEO_ID = r'^(?:https?://)?([^\s<>"]+|www\.)?auengine\.io/embed/([a-z-A-Z-0-9]+)'
+	_PATTERN = r'file: \'(http://s[0-9]+\.auengine\.io/[^\s<>"]+.mp4)\''
 
 	def __init__(self, url, **kwargs):
 		self.url = url
@@ -18,10 +19,12 @@ class Auengine_io_IE(InfoExtractor):
 		video_id = self.search_regex(self._VIDEO_ID, self.url, 'videonest')
 		data = self._get_webpage(self.url, self.client,\
 					Req_head = {'User-Agent':std.FUA}, wpage=self.wpage)
-		url = self.findall_regex(r'file: \'(.+?)\'', str(data['webpage']), 'videonest')
+
+		url = self.findall_regex(self._PATTERN, str(data['webpage']), 'auengine_io')
 
 		if not url: return None
-
-		filename = self.file_name_html('head/title',str(data["webpage"]))
+		print(url)
+		filename = self.getFilename(url)
+		#filename = self.file_name_html('head/title',str(data["webpage"]))
 		return {'url': url,
-			'filename': filename or self.getFilename(url)}
+			'filename': filename}

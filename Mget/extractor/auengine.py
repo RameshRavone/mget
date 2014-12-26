@@ -5,11 +5,13 @@ from .common import InfoExtractor
 from ..utils import urlparse, std
 from .auengine_io import Auengine_io_IE
 
+
+# "http://s45.auengine.com/vod/g8IjH2gKpM513KF8Q1J2zw/1419486404/vYCW5yg.mp4"
 class Auengine_IE(InfoExtractor):
 	_VALID_URL = r'^(?:https?://)?(?:www\.)?auengine\.com/(?:.*)'
 	_VALID_URL_1 = r'^(?:https?://)?(?:www\.)?auengine\.io/embed/(?:.*)'
 
-	_PATTERN = r'url: \'(http://s[0-9]+\.auengine\.com%2F[^\s<>"]+)\''
+	_PATTERN = r'url: \'(http://s[0-9]+\.auengine\.com/[^\s<>"]+.mp4)\''
 
 	def __init__(self, url, **kwargs):
 		self.url = url

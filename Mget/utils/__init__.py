@@ -14,7 +14,7 @@ from mgetsys import MGet
 
 _SITE_LIST = [	'mp4upload.com', 'trollvid.net', 'anivids.tv', 'auengine.com', 'auengine.io',
 		'aniupload.com', 'yourupload.com', 'videonest.net', 'videodrive.tv', 'ftwcdn.com',
-		'playpanda.net', 'veevr.com', 'video44.net', 'play44.net', 'bzoo.org']
+		'playpanda.net', 'veevr.com', 'video44.net', 'play44.net', 'bzoo.org', 'animebam.com']
 
 def write_string(s,newline=True):
 	if not newline and s[:1] == '\n': s = s[1:]

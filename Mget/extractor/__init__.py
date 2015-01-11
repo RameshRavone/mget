@@ -1,8 +1,8 @@
-#!/usr/bin/env python3
+#!/usr/bin/en python3
 
 __all__ = ["get_info", "strip_site", "InfoExtractor"]
 
-import re
+import re, sys
 
 from ..utils import (strip_site, std, MGet, urlparse, ExtractorError)
 from ..utils import common as _common
@@ -51,7 +51,8 @@ def get_info(url, client, info):
 		else: _common.report_error("Mangafox url must match " + std.EG_URL)
 
 		try: re_data = InfoExtractor().gen_manga_urls (url,client=client,wpage=wpage)
-		except:	raise ExtractorError("unable to find manga information from: %s" % hostname)
+		except: raise ExtractorError("unable to find manga information from: %s" % hostname,
+									exc_info = sys.exc_info())
 
 		ret["urls"] = re_data["urls"]
 		ret["series"] = re_data["series"]
@@ -59,9 +60,10 @@ def get_info(url, client, info):
 		ret["tot_download"] = re_data["tot_download"]
 		return ret
 
-	if hostname in ('animeram.eu','animeram.tv','animewaffles.tv','cc-anime.com'):
+	if hostname in ('animeram.eu','animeram.tv','animewaffles.tv','animebacon.tv','cc-anime.com'):
 		try: newurl = InfoExtractor.get_embed_url(url,client=client,wpage=wpage)
-		except: raise ExtractorError("unable to find embed url in: %s" % hostname)
+		except: raise ExtractorError("unable to find embed url in: %s" % hostname,
+									exc_info = sys.exc_info())
 
 	if newurl is not None:
 		hostname, site = strip_site(newurl)

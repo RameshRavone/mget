@@ -16,6 +16,7 @@ Mget/downloader/client.py
 Mget/downloader/common.py
 Mget/downloader/http.py
 Mget/extractor/__init__.py
+Mget/extractor/animebam.py
 Mget/extractor/aniupload.py
 Mget/extractor/anivids.py
 Mget/extractor/auengine.py

@@ -30,8 +30,7 @@ class MGetDL(FileDownloader):
 	def get_ie_result(self, url):
 		try: return get_info(url, self.client, self.info)
 		except ExtractorError as err:
-			if self.info.get('debug_mget'): common.report_error(err._trace())
-			else: common.report_error(str(err))
+			common.report_error(str(err))
 			exit(2)
 
 	def __downloadFile__(self, urlObj):

@@ -8,7 +8,7 @@ from . import urllib
 def FormatTrace(exc_info):
 	ex_type = exc_info[0]
 	ex_value = exc_info[1]
-	tb = traceback.extract_tb(exc_info[2])[0]
+	tb = traceback.extract_tb(exc_info[2])
 
 	etype = ex_type.__name__
 	emodule = ex_type.__module__
@@ -23,18 +23,18 @@ def FormatTrace(exc_info):
 	return ''.join("[debug] %s\n" % x for x in r)
 
 class ExtractorError(Exception):
-	def __init__(self, msg, excepted=False, cause=None):
+	def __init__(self, msg, excepted=False, cause=None, exc_info=None):
 		if sys.exc_info()[0] in (urllib.URLError, socket.timeout): excepted = True
 		if not excepted:
 			msg = msg + " please report this issue to mssg3r@gmail.com. Be sure to call mget with the --verbose and include its complete output. Make sure you are using the latest version."
 
 		super(ExtractorError, self).__init__(msg)
 		self.msg = str(msg)
-		self.exc_info = sys.exc_info()
+		self.exc_info = exc_info
 		self.cause = cause
 
 	def __str__(self): return self.msg
-	def _trace(self): return FormatTrace(self.exc_info)
+	def _trace(self): return FormatTrace(self.exc_info) if self.exc_info != None else "None"
 
 class DownloadError(Exception):
 	def __init__(self, msg, exc_info=None):
@@ -43,7 +43,7 @@ class DownloadError(Exception):
 		self.exc_info = exc_info
 
 	def __str__(self): return self.msg
-	def _trace(self): return FormatTrace(self.exc_info)
+	def _trace(self): return FormatTrace(self.exc_info) if self.exc_info != None else "None"
 
 class ContentTooShortError(Exception):
 	def __init__(self, downloaded=None, expected=None):

@@ -66,8 +66,9 @@ class InfoExtractor(object):
 
 	@staticmethod
 	def file_name_html(tag, data):
-		p = ET.fromstring(data)
-		if p.find(tag) is not None: return p.find(tag).text
+		titleRe = re.compile("<" + tag + ">(.+?)</"+ tag +">")
+		title = titleRe.search(data).group(1)
+		if title.endswith(".mp4"): return title
 		else: return None
 
 	@staticmethod

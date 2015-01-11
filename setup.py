@@ -41,6 +41,7 @@ setup(
 	author_email='mssg3r@gmail.com',
 	packages=find_packages(),
 	classifiers=[
+	"Platform: Linux",
 	"Development Status :: 5 - Production/Stable",
 	"Environment :: Console",
 	"License :: OSI Approved :: GNU General Public License v2 (GPLv2)",

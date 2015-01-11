@@ -23,8 +23,7 @@ class Auengine_io_IE(InfoExtractor):
 		url = self.findall_regex(self._PATTERN, str(data['webpage']), 'auengine_io')
 
 		if not url: return None
-		print(url)
-		filename = self.getFilename(url)
-		#filename = self.file_name_html('head/title',str(data["webpage"]))
+
+		filename = self.file_name_html('title',str(data["webpage"]))
 		return {'url': url,
-			'filename': filename}
+			'filename': filename or self.getFilename(url)}

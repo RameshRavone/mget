@@ -3,4 +3,4 @@ Implementing cython from 1.1.2 > *.
 #SYNOPSIS
 mget [options..] URL
 
-Read README.txt to earn how to use and know more.
+Read README.txt to learn how to use and know more.

@@ -1,6 +1,6 @@
 Metadata-Version: 1.1
 Name: mget
-Version: 1.4.2
+Version: 1.4.6
 Summary: HTTP file/video downloader
 Home-page: UNKNOWN
 Author: Ramesh Mani Maran
@@ -9,7 +9,6 @@ License: UNKNOWN
 Description: Small command-line program to download videos from  mp4upload.com & video sharing site and other http urls. Written in Python3 and cython3 `Install using pip3`
 Keywords: download mget http file downloader video mp4upload
 Platform: UNKNOWN
-Classifier: Platform: Linux
 Classifier: Development Status :: 5 - Production/Stable
 Classifier: Environment :: Console
 Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)

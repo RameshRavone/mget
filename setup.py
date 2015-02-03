@@ -1,6 +1,6 @@
 #!/usr/bin/env python3 
 
-__version__ = '1.4.2'
+__version__ = '1.4.6'
 
 import glob
 import os, warnings
@@ -16,7 +16,7 @@ ext_modules = [	Extension( "mgetsys",
 		[cpy_src + 'cpycode.pyx', cpy_src + 'main.cpp', cpy_src + 'common.cpp'],
 		extra_compile_args=["-std=c++11"], language="c++")]
 
-files_spec = [	('share/doc/mget', ['README.txt']),
+files_spec = [	('share/doc/mget', ['README.md']),
 		('', glob.glob('*.so')),
 		(userconf, ['mget.conf'])]
 data_files = []
@@ -41,7 +41,6 @@ setup(
 	author_email='mssg3r@gmail.com',
 	packages=find_packages(),
 	classifiers=[
-	"Platform: Linux",
 	"Development Status :: 5 - Production/Stable",
 	"Environment :: Console",
 	"License :: OSI Approved :: GNU General Public License v2 (GPLv2)",

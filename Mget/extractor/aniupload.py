@@ -20,8 +20,9 @@ class Aniupload_IE(InfoExtractor):
 
 		if not url: return None
 
-		name, ext = self.getFilename(url).split('.')
-		filename = "%s-%s.%s" % (name,video_id,ext)
+		name = self.getFilename(url)
+		filename = "%s-%s.mp4" % (name,video_id)
 
 		return {'url': url,
 			'filename': filename}
+

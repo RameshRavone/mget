@@ -5,9 +5,9 @@ cookies.txt
 mget.conf
 setup.cfg
 setup.py
-/home/mssg3r/Works/MGET-1.4.2/./Mget/utils/CPPMGET/common.cpp
-/home/mssg3r/Works/MGET-1.4.2/./Mget/utils/CPPMGET/cpycode.pyx
-/home/mssg3r/Works/MGET-1.4.2/./Mget/utils/CPPMGET/main.cpp
+/home/mssg3r/Works/MGET-1.4.6/./Mget/utils/CPPMGET/common.cpp
+/home/mssg3r/Works/MGET-1.4.6/./Mget/utils/CPPMGET/cpycode.pyx
+/home/mssg3r/Works/MGET-1.4.6/./Mget/utils/CPPMGET/main.cpp
 Mget/__init__.py
 Mget/__main__.py
 Mget/mget.py

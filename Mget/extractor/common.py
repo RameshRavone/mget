@@ -65,10 +65,12 @@ class InfoExtractor(object):
 		return p.get_result(pat, 'src') or p.get_result('embed', 'src')
 
 	@staticmethod
-	def file_name_html(tag, data):
+	def file_name_html(tag, data, video_id):
 		titleRe = re.compile("<" + tag + ">(.+?)</"+ tag +">")
 		title = titleRe.search(data).group(1)
-		if title.endswith(".mp4"): return title
+		if title.endswith(".mp4"):
+			title = title[:-4] + "-" + video_id + ".mp4"
+			return title
 		else: return None
 
 	@staticmethod

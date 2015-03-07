@@ -11,7 +11,7 @@ class Auengine_IE(InfoExtractor):
 	_VALID_URL = r'^(?:https?://)?(?:www\.)?auengine\.com/(?:.*)'
 	_VALID_URL_1 = r'^(?:https?://)?(?:www\.)?auengine\.io/embed/(?:.*)'
 
-	_PATTERN = r'video_link = \'(http://s[0-9]+\.auengine\.com/[^\s<>"]+.mp4)\''
+	_PATTERN = r'video_link = \'(.+?)\''
 
 	def __init__(self, url, **kwargs):
 		self.url = url
@@ -31,7 +31,7 @@ class Auengine_IE(InfoExtractor):
 
 		if not url: return None
 
-		filename = self.file_name_html('title', str(data["webpage"]))
+		filename = self.file_name_html('title', str(data["webpage"]), video_id)
 		return {'url': urlparse.unquote(url),
 			'video_id': video_id,
 			'filename': filename or self.getFilename(url)}

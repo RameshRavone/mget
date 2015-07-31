@@ -62,7 +62,7 @@ buffer = new char[100];
 return buffer;
 }
 
-mget::list mget::m_string<char*>::split(char delim = '\n') {
+mget::list mget::m_string<char*>::split(char delim) {
 std::string buf = "";
 
 	for (unsigned int i = 0; i < this->_string.length(); i++) {
@@ -78,7 +78,7 @@ std::string buf = "";
 return this->_list;
 }
 
-std::string mget::m_string<char*>::join(mget::list array, std::string prefix = "") {
+std::string mget::m_string<char*>::join(mget::list array, std::string prefix) {
 std::ostringstream oss;
 
 for (unsigned int i = 0; i < array.size(); i++ ) { oss << prefix << array[i] << this->_string; }

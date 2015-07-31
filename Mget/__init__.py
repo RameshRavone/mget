@@ -74,6 +74,7 @@ def Arguments():
 
 	work.add_argument('--download-manga', dest='down_manga', action='store_true', help="Download Manga from mangafox (MGet will download manga from mangafox on it's own no need to mention it).")
 	work.add_argument('--start-page', dest='start_page', metavar='PAGE_NUM', type=int, default=1, help="Download chapter Pages from ${manga} at mangafox.")
+	work.add_argument('--manga-pattern', dest='manga_pattern', metavar='STRING', type=str, default=None, help="${manga} pattern for PNG files.")
 	work.add_argument('--end-page', dest='end_page', metavar='PAGE_NUM', type=int, default=None, help="Download chapter Pages up to from ${manga} at mangafox.")
 
 	work.add_argument('--no-check-certificate', dest='ssl_no_check', action='store_true', help="Suppress HTTPS certificate validation.")
@@ -196,6 +197,7 @@ def main():
 	'cookiefile'	: opts.cookiefile,
 	'log_file'	: opts.log_file,
 	'quiet_mode'	: opts.quiet_mode,
+	'manga-pat'	: opts.down_manga,
 	'down-mange'	: opts.down_manga,
 	'start-page'	: opts.start_page,
 	'end-page'	: opts.end_page,
@@ -236,9 +238,9 @@ def main():
 		opts.url = url if url.startswith('http') else "http://%s" % (url)
 
 		hostname, site = strip_site(opts.url)
-		if site in ("mangafox") and not infos['down-mange']:
-			if infos['quit_size'] != 100.0:
-				common._error("Cannot use (--download-mange, -p) together"); exit(1)
+		if site in ("mangafox", "mangatown") and not infos['down-mange']:
+			if infos['quit_size'] != 100.0: pass
+#				common._error("Cannot use (--download-mange, -p) together"); exit(1)
 			infos['down-mange'] = True
 
 		try:

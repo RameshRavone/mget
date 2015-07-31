@@ -69,7 +69,15 @@ void mget::MGet::print_info(m_dict &info) {
 	const char* e_f_size = format_bytes(expected);
 
 	if ( info["quiet_mode"].m_bool ) {
-	common->report(format(200, "[MGet Info] Filesize: %d [%s] -> %s\n", filesize,F_filesize,filename));
+	result.push_back(format(200, "Filesize: %d [%s] -> %s", filesize,F_filesize,filename));
+
+	if (info["quit_size"].m_float != 100.0) {
+	resume = (info["resuming"].m_bool) ? get_remaining(info["cursize"].m_int, expected) : "";
+	result.push_back(format(150,
+			"Expecting to download: %d [%s],%s", expected,e_f_size,resume.c_str()));
+	}
+
+	common->report(new_line.join(result, "[MGet Info] "));
 	return;
 	}
 	if (info["quit_size"].m_float == 100.0) {

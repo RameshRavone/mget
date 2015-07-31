@@ -84,8 +84,10 @@ class InfoExtractor(object):
 		return urlparse.urlunparse(urlparts)
 
 	def gen_manga_urls (self, url, client, **kwargs):
+
 		urls = []
 		wpage = kwargs.pop("wpage", False)
+		patt = kwargs.pop("patt", None);
 
 		host = urlparse.urlparse(url).hostname
 		data = InfoExtractor._get_webpage(url, client, wpage=wpage, hostname=host)
@@ -95,10 +97,20 @@ class InfoExtractor(object):
 		chapter = self.search_regex(r'current_chapter="(.+?)";',str(data['webpage']),'manga')
 		furl = self.search_regex(r'this.src=\'(.+?)\'',str(data['webpage']),'manga')
 
-		prefix_url = furl[:-7]
+		# http://b.mfcdn.net/store/manga/11374/13-103.0/compressed/gthe_seven_deadly_sins103_002_rhn.jpg
+		# http://l.mfcdn.net/store/manga/9011/08-034.0/compressed/mshingeki_no_kyojin_ch034_020-eng.jpg
+		filename = furl.split("/")[-1]
 
-		for i in list(range(1, int(totalPages)+1)): 
-			urls.append(prefix_url + "%03d.jpg" % i)
+		if (len(filename) <= 12):
+			prefix_url = furl[:-7]
+			for i in list(range(1, int(totalPages)+1)):
+				urls.append(prefix_url + "%03d.jpg" % i)
+		else:
+			prefix_url0 = furl[-8:]
+			prefix_url = furl[:-11]
+
+			for i in list(range(1, int(totalPages)+1)):
+				urls.append((prefix_url + "%03d" + prefix_url0) % i)
 
 		return {"urls": urls,
 			"series": common.delimiter_caps(series),

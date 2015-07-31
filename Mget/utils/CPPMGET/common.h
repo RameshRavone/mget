@@ -12,8 +12,8 @@ template <class> class m_string;
 template <> class m_string<char *>: public std::string {
 public:
 	m_string (const char *s) : std::string(s) { _string = s; };
-	list split (char );
-	std::string join (list, std::string);
+	list split (char deli = '\n');
+	std::string join (list, std::string = "");
 	std::string operator* (int );
 
 private:

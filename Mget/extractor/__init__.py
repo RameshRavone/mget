@@ -20,6 +20,7 @@ from .veevr import Veevr_IE
 from .videonest import Videonest_IE
 from .videodrive import Videodrive_IE
 from .yourupload import Yourupload_IE
+from .hentaistar import Hentaistar_IE
 
 _ALL_CLASSES = [klass for name, klass in globals().items() if name.endswith('_IE')]
 
@@ -48,9 +49,17 @@ def get_info(url, client, info):
 		if re.match(std.MANGA_URL, url):
 			mObj = re.search(std.MANGA_URL, url)
 			match = mObj.groups()
+		elif re.match(std.MANGA_URL1, url):
+			print("passed");
+			mObj = re.search(std.MANGA_URL1, url)
+			match = mObj.groups()
+			print("passed");
 		else: _common.report_error("Mangafox url must match " + std.EG_URL)
 
-		try: re_data = InfoExtractor().gen_manga_urls (url,client=client,wpage=wpage)
+		try: re_data = InfoExtractor().gen_manga_urls (url,
+							client=client,
+							wpage=wpage,
+							patt=info.get("manga-pat", None))
 		except: raise ExtractorError("unable to find manga information from: %s" % hostname,
 									exc_info = sys.exc_info())
 
@@ -60,7 +69,7 @@ def get_info(url, client, info):
 		ret["tot_download"] = re_data["tot_download"]
 		return ret
 
-	if hostname in ('animeram.eu','animeram.tv','animewaffles.tv','animebacon.tv','cc-anime.com'):
+	if site in ('animeram','animewaffles','animebacon','cc-anime','animeshow','animean'):
 		try: newurl = InfoExtractor.get_embed_url(url,client=client,wpage=wpage)
 		except: raise ExtractorError("unable to find embed url in: %s" % hostname,
 									exc_info = sys.exc_info())

@@ -12,7 +12,7 @@ from socket import ( timeout as sock_timeout, error as sock_error )
 
 from mgetsys import MGet
 
-_SITE_LIST = [	'mp4upload.com', 'trollvid.net', 'anivids.tv', 'auengine.com', 'auengine.io',
+_SITE_LIST = [	'mp4upload.com', 'trollvid.net', 'anivids.tv', 'auengine.com', 'auengine.io', 'hentaistar.net',
 		'aniupload.com', 'yourupload.com', 'videonest.net', 'videodrive.tv', 'ftwcdn.com',
 		'playpanda.net', 'veevr.com', 'video44.net', 'play44.net', 'bzoo.org', 'animebam.com']
 
@@ -44,8 +44,11 @@ std.headers = {	'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate',
 		'Accept-Charset': 'ISO-8859-1,utf-8;q=0.7,*;q=0.7'}
 std.share_site_list = [ 'animeram.eu','animewaffles.tv','cc-anime.com']
 std.site_list = _SITE_LIST
+
 std.MANGA_URL = r'^(?:https?://)?(?:www\.)?mangafox\.me/manga/(.+?)/v([-0-9-a-z-A-Z-.]+)/c([0-9-.]+)/([0-9]+\.html)'
+std.MANGA_URL1 = r'^(?:https?://)?(?:www\.)?mangatown\.com/manga/(.+?)/v([-0-9-a-z-A-Z-.]+)/c([0-9-.]+)/([0-9]+\.html)'
 std.EG_URL = "http://mangafox.me/manga/v${01}/c${001}/${1}.html"
+std.EG_URL1 = "http://mangatown.com/manga/v${01}/c${001}/${1}.html"
 
 from .exception import *
 from .handlers import *

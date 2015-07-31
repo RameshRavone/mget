@@ -1,3 +1,0 @@
-[console_scripts]
-mget = Mget:main
-

@@ -2,7 +2,7 @@
 
 __authors__  = ("Ramesh (aka R4V0N3)")
 
-__version__ = 'version 1.4.6'
+__version__ = 'version 1.4.8'
 
 import os, sys
 import time

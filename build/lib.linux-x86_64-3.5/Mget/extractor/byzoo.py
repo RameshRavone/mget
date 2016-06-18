@@ -3,8 +3,8 @@
 import re
 from .common import InfoExtractor
 
-class Playpanda_IE(InfoExtractor):
-	_VALID_URL = r'^(?:https?://)?([^\s<>"]+|www\.)?playpanda\.net/(?:.*)'
+class _IE(InfoExtractor):
+	_VALID_URL = r'^(?:https?://)?([^\s<>"]+|www\.)?byzoo\.org/(?:.*)'
 	_PATTERN = r'url: \'([^\s<>"]+{}[^\s<>"]+)\''
 
 	def __init__(self, url, **kwargs):
@@ -14,10 +14,9 @@ class Playpanda_IE(InfoExtractor):
 
 	def _extract_info(self, **kwargs):
 		if not re.match(self._VALID_URL, self.url): return None
-
 		filename = self.url.split('/')[-1]
 		data = self._get_webpage(self.url, self.client, wpage=self.wpage)
-		url = self.findall_regex(self._PATTERN.format(filename), str(data['webpage']), 'playpanda')
+		url = self.findall_regex(self._PATTERN.format(filename),str(data['webpage']),'play44')
 
 		if not url: return None
 

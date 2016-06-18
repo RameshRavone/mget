@@ -18,7 +18,7 @@ class Mp4upload_IE(InfoExtractor):
 		video_id = self.search_regex(self._VIDEO_URL, self.url, 'mp4upload')
 		data = self._get_webpage(self.url, self.client, wpage=self.wpage)
 		webpage = re.sub('\s+', '', str(data['webpage']))
-		url = self.findall_regex(r'"file":"(.+?)",', webpage, 'mp4upload')
+		url = self.findall_regex(r'clip:{url:\'(.+?)\',', webpage, 'mp4upload')
 
 #		d = self.search_regex(',\'(.+?)\'.split', str(data['webpage']), 'mp4upload')
 #		r = (d.split('|')[2:])
@@ -28,8 +28,6 @@ class Mp4upload_IE(InfoExtractor):
 
 #		url = "http://www4.mp4upload.com:182/d/{}/video.mp4".format(token);
 		if not url: return None
-
-		print(url)
 
 		url = self.remove_query(url)
 		name, ext = self.getFilename(url).split('.')

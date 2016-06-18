@@ -69,7 +69,7 @@ def get_info(url, client, info):
 		ret["tot_download"] = re_data["tot_download"]
 		return ret
 
-	if site in ('animeram','animewaffles','animebacon','cc-anime','animeshow','animean','hentaistar'):
+	if site in ('animeram','animewaffles','animebacon','cc-anime','animeshow','animean'):
 		try: newurl = InfoExtractor.get_embed_url(url,client=client,wpage=wpage)
 		except: raise ExtractorError("unable to find embed url in: %s" % hostname,
 									exc_info = sys.exc_info())

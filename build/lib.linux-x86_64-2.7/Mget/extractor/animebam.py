@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
 
+# ULRhttp://animebam.com/embed/11236
+
 import os, re
 from .common import InfoExtractor
 
 # http://www1.mp4upload.com:182/d/swxv2dsez3b4quuod6ub6jcwidplnz7jeq2xk4r274cqsdhshix7o7rg/video.mp4
 
-class Mp4upload_IE(InfoExtractor):
-	_VIDEO_URL = r'^(?:https?://)?(?:www\.)?mp4upload\.com/embed-([a-z-A-Z-0-9]+)'
+class Animebam_IE(InfoExtractor):
+	_VIDEO_URL = r'^(?:https?://)?(?:www\.)?animebam\.com/embed/([0-9]+)'
+	_PATTERN = r'sources:[{file:"([^\s<>"]+.mp4)",'
+	_PATTERN = r'file:"(http://oose.io/3edb86268524c186fd3a73f342f112d65e4c5715/video.mp4)"'
+	_PATTERN = r'file: "(.+?)"'
 
 	def __init__(self, url, **kwargs):
 		self.url = url
@@ -15,21 +20,12 @@ class Mp4upload_IE(InfoExtractor):
 
 	def _extract_info (self, **kwargs):
 		if not re.match(self._VIDEO_URL, self.url): return None
-		video_id = self.search_regex(self._VIDEO_URL, self.url, 'mp4upload')
+		video_id = self.search_regex(self._VIDEO_URL, self.url, 'animebam')
 		data = self._get_webpage(self.url, self.client, wpage=self.wpage)
-		webpage = re.sub('\s+', '', str(data['webpage']))
-		url = self.findall_regex(r'"file":"(.+?)",', webpage, 'mp4upload')
 
-#		d = self.search_regex(',\'(.+?)\'.split', str(data['webpage']), 'mp4upload')
-#		r = (d.split('|')[2:])
+		url = self.findall_regex(self._PATTERN, str(data['webpage']), 'animebam')
 
-#		for val in r:
-#			if len(val) > 50: token = val
-
-#		url = "http://www4.mp4upload.com:182/d/{}/video.mp4".format(token);
 		if not url: return None
-
-		print(url)
 
 		url = self.remove_query(url)
 		name, ext = self.getFilename(url).split('.')

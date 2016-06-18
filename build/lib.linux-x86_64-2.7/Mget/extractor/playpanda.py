@@ -14,7 +14,6 @@ class Playpanda_IE(InfoExtractor):
 
 	def _extract_info(self, **kwargs):
 		if not re.match(self._VALID_URL, self.url): return None
-
 		filename = self.url.split('/')[-1]
 		data = self._get_webpage(self.url, self.client, wpage=self.wpage)
 		url = self.findall_regex(self._PATTERN.format(filename), str(data['webpage']), 'playpanda')

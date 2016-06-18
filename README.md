@@ -70,7 +70,7 @@ Download file with ease! Send your request to froglogics@gmail.com.
 
 Examples:
     #Download Embed video
-    mget [options..] http://animewaffles.tv/Player-Mahouka-Koukou-no-Rettousei-Episode-1-English-Subbed-41888
+    mget [options..] http://www.mp4upload.com/embed-u2k1mndalowe.html
 
     #Download some amount(Percent%) of file only
     mget [options..] -p 90 <URL>
@@ -90,7 +90,7 @@ Examples:
 
 ## How to get embed url?
 
-use mget -G option to automatically extract embed url from page (Supported: `animewaffle.tv`, animeram.eu, cc-anime.com).
+use mget -G option to automatically extract embed url from page (Supported: `mp4upload.com` `animewaffle.tv`, animeram.eu, cc-anime.com).
 MGet 1.1.2 > * does't need this it's default.
 
 ### I get HTTP error 402 when trying to download a video. What's this?

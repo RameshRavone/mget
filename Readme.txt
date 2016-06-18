@@ -70,7 +70,7 @@ Download file with ease! Send your request to froglogics@gmail.com.
 
 Examples:
     #Download Embed video
-    mget [options..] http://animewaffles.tv/Player-Mahouka-Koukou-no-Rettousei-Episode-1-English-Subbed-41888
+    mget [options..] http://www.mp4upload.com/embed-u2k1mndalowe.html
 
     #Download some amount(Percent%) of file only
     mget [options..] -p 90 <URL>

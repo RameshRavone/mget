@@ -90,7 +90,7 @@ Examples:
 
 ## How to get embed url?
 
-use mget -G option to automatically extract embed url from page (Supported: `animewaffle.tv`, animeram.eu, cc-anime.com).
+use mget -G option to automatically extract embed url from page (Supported: `mp4upload.com` `animewaffle.tv`, animeram.eu, cc-anime.com).
 MGet 1.1.2 > * does't need this it's default.
 
 ### I get HTTP error 402 when trying to download a video. What's this?

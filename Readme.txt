@@ -1,8 +1,6 @@
 MGet - Download from video sharing sites and MGet is a file downloader which currently support HTTP.
 
 # Sorry, Implementing cython from 1.1.2 > *.
-	If you need fully python based 
-
 # SYNOPSIS
 mget [OPTIONS] URL [URL...]
 
@@ -68,7 +66,7 @@ Filesystem arguments:
   -i FILE                File with list of url to download.
   -O FILENAME            File name to save the output..
 
-Download file with ease! Send your request to r4v0n3@gmail.com.
+Download file with ease! Send your request to froglogics@gmail.com.
 
 Examples:
     #Download Embed video
@@ -109,5 +107,5 @@ MGet is packed as an executable zipfile, simply unzip it (might need renaming to
 
 ####################################################################################################
 
-Send your Request to r4v0n3@gmail.com.
+Send your Request to froglogics@gmail.com.
 
